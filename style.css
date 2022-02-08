@@ -1,7 +1,13 @@
 .grid {
-  position: absolute;
+  position: relative;
   border: solid 1px black;
-  margin-top: 100px;
+  margin: 0 auto;
+}
+
+.console {
+  position: relative;
+  text-align: center;
+  font-size: larger;  
 }
 
 .player {

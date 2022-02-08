@@ -1,55 +1,31 @@
-// Player class
-class Player {
-  constructor(xStartPos, yStartPos) {
-    this.Height = 20;
-    this.Width = 100;
-    this.X = xStartPos;
-    this.Y = yStartPos;
-    this.Element = document.createElement("div");
-  }
-}
+import { Player } from "./player.js";
+import { Grid } from "./grid.js";
+import { keyPresses } from "./bind.js";
 
-// Grid class
-class Grid {
-  constructor(w, h) {
-    this.Width = w;
-    this.Height = h;
-    this.Element = document.querySelector(".grid")
+const grid = new Grid(1280, 720)
+const player = new Player(20, 100, (grid.Width - 100) / 2, (grid.Height / 10));
+const console = document.querySelector(".console")
 
-    this.Element.style.height = this.Height + "px";
-    this.Element.style.width = this.Width + "px";
-  }
-}
-
-const grid = new Grid(560, 300)
-const player = new Player(230, 10);
-
-// append new player
+// Appends new player to the grid
 player.Element.classList.add("player")
 grid.Element.appendChild(player.Element)
-drawPlayer()
 
-// bind movement keys
-document.addEventListener("keydown", movePlayer)
-function movePlayer(e) {
-  switch (e.key) {
-    case "ArrowLeft":
-      if (player.X > 0) {
-        player.X -= 10
-        drawPlayer()
-      }
-      break
-    case "ArrowRight":
-      if (player.X < (grid.Width - player.Width)) {
-        player.X += 10
-        drawPlayer()
-      }
-      break
+// Sets game loop
+window.requestAnimationFrame(gameLoop);
+function gameLoop() {
+  console.querySelector(".player-x").innerHTML = "Player X: " + player.X;
+  console.querySelector(".player-y").innerHTML = "Player Y: " + player.Y;
+  console.querySelector(".player-w").innerHTML = "Player Width: " + player.Width;
+  console.querySelector(".player-h").innerHTML = "Player Height: " + player.Height;
+
+  if (keyPresses.a && player.X > 0) {
+    player.X -= player.Speed;
+    player.Element.style.left = player.X + "px"
   }
-}
+  if (keyPresses.d && (grid.Width - player.Width) - player.X > 0) {
+    player.X += player.Speed;
+    player.Element.style.left = player.X + "px"
+  }
 
-// draw player
-function drawPlayer() {
-  player.Element.style.left = player.X + "px"
-  player.Element.style.bottom = player.Y + "px"
+  window.requestAnimationFrame(gameLoop);
 }
