@@ -27,12 +27,28 @@ function gameLoop() {
   window.requestAnimationFrame(gameLoop);
   now = Date.now();
   delta = now - then;
-  dt = delta / interval 
+  dt = delta / interval;
 
   if (delta > interval) {
     then = now - (delta % interval);
+
     player.update(keyPresses, grid.Width, dt);
-    updateConsole(1000 / interval)
+    ball.update(dt);
+
+    if (ball.collides(player)) {
+      ball.Y = player.Y + ball.Height
+      ball.dy = -ball.dy
+
+      if (ball.X < player.X + (player.Width / 2) && player.dx < 0) {
+        ball.dx = -5 + -(0.1 * (player.X + player.Width / 2 - ball.X))
+      } else if (ball.X > player.X + (player.Width / 2) && player.dx > 0) {
+        ball.dx = 5 + (0.1 * Math.abs(player.X + player.Width / 2 - ball.X))
+      } else {
+        ball.dx = Math.random() * (7 - -7) + -7;
+      }
+    }
+
+    updateConsole(1000 / interval);
   }
 }
 
@@ -43,4 +59,8 @@ function updateConsole(fps) {
   devConsole.querySelector(".player-y").innerHTML = "Player Y: " + player.Y;
   devConsole.querySelector(".player-w").innerHTML = "Player Width: " + player.Width;
   devConsole.querySelector(".player-h").innerHTML = "Player Height: " + player.Height;
+  devConsole.querySelector(".player-dx").innerHTML = "Player dx: " + player.dx;  
+  devConsole.querySelector(".ball-dx").innerHTML = "Ball dx: " + ball.dx;
+  devConsole.querySelector(".ball-dy").innerHTML = "Ball dy: " + ball.dy;  
+
 }

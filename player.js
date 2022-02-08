@@ -30,7 +30,11 @@ export class Player {
       this.X = Math.min(gridWidth - this.Width, this.X + this.dx * dt);
     }
 
-    this.Element.style.left = this.X + "px";
+    this.render();
+  }
+
+  render() {
+    this.Element.style.left = this.X + "px"; 
   }
 }
 
