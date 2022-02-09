@@ -50,9 +50,6 @@ export class Ball {
     } else if (this.x >= 1280 - 20) {
       this.x = 1280 - 20
       this.dx = -this.dx
-    } else if (this.y <= 0) {
-      this.y = 0
-      this.dy = -this.dy
     } else if (this.y >= 720 - 20) {
       this.y = 720 - 20
       this.dy = -this.dy
