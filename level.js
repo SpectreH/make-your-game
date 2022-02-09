@@ -1,39 +1,39 @@
 // Grid class
 export class Grid {
   constructor(w, h) {
-    this.Width = w;
-    this.Height = h;
+    this.width = w;
+    this.height = h;
 
-    this.Element = document.querySelector(".grid");
-    this.Element.style.width = this.Width + "px";
-    this.Element.style.height = this.Height + "px";
+    this.element = document.querySelector(".grid");
+    this.element.style.width = this.width + "px";
+    this.element.style.height = this.height + "px";
   }
 }
 
 // Ball class
 export class Ball {
   constructor(w, h, xStartPos, yStartPos) {
-    this.Width = w;
-    this.Height = h;
-    this.X = xStartPos;
-    this.Y = yStartPos;
+    this.width = w;
+    this.height = h;
+    this.x = xStartPos;
+    this.y = yStartPos;
     this.dx = Math.random() * (10 - -10) + -10; // sets random start x velocity
     this.dy = Math.random() * (-6 - -5) + -5; // sets random start y velocity
 
-    this.Element = document.createElement("img");
-    this.Element.setAttribute("src", "./img/ball.png")
-    this.Element.style.width = this.Width + "px";
-    this.Element.style.height = this.Height + "px";
-    this.Element.style.left = this.X + "px";
-    this.Element.style.bottom = this.Y + "px";
+    this.element = document.createElement("img");
+    this.element.setAttribute("src", "./img/ball.png")
+    this.element.style.width = this.width + "px";
+    this.element.style.height = this.height + "px";
+    this.element.style.left = this.x + "px";
+    this.element.style.bottom = this.y + "px";
   }
 
   collides(target) {
-    if (this.X > target.X + target.Width || target.X > this.X + this.Width) {
+    if (this.x > target.x + target.width || target.x > this.x + this.width) {
       return false
     }
     
-    if(this.Y > target.Y + target.Height || target.Y > this.Y + this.Height) {
+    if(this.y > target.y + target.height || target.y > this.y + this.height) {
       return false
     }
 
@@ -41,20 +41,20 @@ export class Ball {
   }
 
   update(dt) {
-    this.X = this.X + this.dx * dt
-    this.Y = this.Y + this.dy * dt
+    this.x = this.x + this.dx * dt
+    this.y = this.y + this.dy * dt
 
-    if (this.X <= 0) {
-      this.X = 0
+    if (this.x <= 0) {
+      this.x = 0
       this.dx = -this.dx
-    } else if (this.X >= 1280 - 20) {
-      this.X = 1280 - 20
+    } else if (this.x >= 1280 - 20) {
+      this.x = 1280 - 20
       this.dx = -this.dx
-    } else if (this.Y <= 0) {
-      this.Y = 0
+    } else if (this.y <= 0) {
+      this.y = 0
       this.dy = -this.dy
-    } else if (this.Y >= 720 - 20) {
-      this.Y = 720 - 20
+    } else if (this.y >= 720 - 20) {
+      this.y = 720 - 20
       this.dy = -this.dy
     }
     
@@ -62,7 +62,7 @@ export class Ball {
   }
 
   render() {
-    this.Element.style.left = this.X + "px";
-    this.Element.style.bottom = this.Y + "px";
+    this.element.style.left = this.x + "px";
+    this.element.style.bottom = this.y + "px";
   }
 }
