@@ -8,12 +8,15 @@ export class Player {
     this.y = yStartPos;
     this.dx = 0;
 
-    this.element = document.createElement("img");
-    this.element.setAttribute("src", "./img/paddle.png")
+    this.element = document.createElement("div");
+
     this.element.style.width = this.width + "px";
     this.element.style.height = this.height + "px";
     this.element.style.left = this.x + "px";
     this.element.style.bottom = this.y + "px";
+
+    this.element.style.backgroundImage = 'url("./img/tileset.png")';
+    this.element.style.backgroundPositionY = "-80px";
   }
 
   update(gridWidth, dt) {

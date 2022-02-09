@@ -1,5 +1,7 @@
 import { StateMachine, consts, onStart, onPlay } from "./dependencies.js";
 
+let newImage = new Image()
+
 // Inits game states machine
 window.stateMachine = new StateMachine({
   onStart: onStart,

@@ -12,7 +12,7 @@ export const onPlay = {  // Play state
       this.ball.update(dt);
 
       if (this.ball.collides(this.player)) {
-        this.ball.y = this.player.y + this.ball.height
+        this.ball.y = this.player.y + this.player.height + this.ball.height
         this.ball.dy = -this.ball.dy
 
         if (this.ball.x < this.player.x + (this.player.width / 2) && this.player.dx < 0) {

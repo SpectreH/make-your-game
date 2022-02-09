@@ -11,6 +11,7 @@ export const onStart = {
     this.player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
     this.ball = new Ball(consts.BALL_WIDTH, consts.BALL_HEIGHT, consts.BALL_SPAWN_X, consts.BALL_SPAWN_Y);
 
+    // Appends player to the grid
     this.player.element.classList.add("player");
     this.grid.element.appendChild(this.player.element);
 

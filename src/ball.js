@@ -9,12 +9,16 @@ export class Ball {
     this.dx = Math.random() * (10 - -10) + -10; // sets random start x velocity
     this.dy = Math.random() * (-6 - -5) + -5; // sets random start y velocity
 
-    this.element = document.createElement("img");
-    this.element.setAttribute("src", "./img/ball.png")
+    this.element = document.createElement("div");
+
     this.element.style.width = this.width + "px";
     this.element.style.height = this.height + "px";
     this.element.style.left = this.x + "px";
     this.element.style.bottom = this.y + "px";
+
+    this.element.style.backgroundImage = 'url("./img/tileset.png")';
+    this.element.style.backgroundPositionY = "-48px";
+    this.element.style.backgroundPositionX = "96px";
   }
 
   collides(target) {
@@ -36,11 +40,11 @@ export class Ball {
     if (this.x <= 0) {
       this.x = 0
       this.dx = -this.dx
-    } else if (this.x >= 1280 - 20) {
-      this.x = 1280 - 20
+    } else if (this.x >= 1280 - this.width) {
+      this.x = 1280 - this.width
       this.dx = -this.dx
-    } else if (this.y >= 720 - 20) {
-      this.y = 720 - 20
+    } else if (this.y >= 720 - this.width) {
+      this.y = 720 - this.width
       this.dy = -this.dy
     }
 
