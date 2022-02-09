@@ -16,10 +16,10 @@ export class Player {
     this.element.style.bottom = this.y + "px";
   }
 
-  update(keyPresses, gridWidth, dt) {
-    if (keyPresses.a) {
+  update(gridWidth, dt) {
+    if (window.keyPresses.a) {
       this.dx = -this.speed;
-    } else if (keyPresses.d) {
+    } else if (window.keyPresses.d) {
       this.dx = this.speed;
     } else {
       this.dx = 0;

@@ -1,7 +1,6 @@
+import * as consts from "./constants.js";
 import { Player } from "./player.js";
 import { Ball, Grid } from "./level.js";
-import * as consts from "./constants.js";
-import { keyPresses } from "./bind.js";
 
 const grid = new Grid(consts.GRID_WIDTH, consts.GRID_HEIGHT);
 const player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
@@ -14,6 +13,19 @@ window.onload = function () {
 };
 
 function init() {
+  // Binds keys press
+  window.keyPresses = {};
+
+  window.addEventListener('keydown', keyDownListener);
+  function keyDownListener(event) {
+    window.keyPresses[event.key] = true;
+  }
+
+  window.addEventListener('keyup', keyUpListener);
+  function keyUpListener(event) {
+    window.keyPresses[event.key] = false;
+  }
+
   // Appends new player to the grid
   player.element.classList.add("player");
   grid.element.appendChild(player.element);
@@ -37,7 +49,7 @@ function gameLoop() {
   if (delta > interval) {
     then = now - (delta % interval);
 
-    player.update(keyPresses, grid.width, dt);
+    player.update(grid.width, dt);
     ball.update(dt);
 
     if (ball.collides(player)) {
