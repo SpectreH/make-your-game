@@ -3,7 +3,7 @@ import { Ball, Grid } from "./level.js";
 import { keyPresses } from "./bind.js";
 
 const grid = new Grid(1280, 720);
-const player = new Player(100, 15, (grid.Width - 100) / 2, (grid.Height / 10));
+const player = new Player(128, 24, (grid.Width - 100) / 2, (grid.Height / 10));
 const ball = new Ball(20, 20, player.X + (player.Width / 2) - (20 / 2), player.Y + player.Height);
 const devConsole = document.querySelector(".console");
 
@@ -62,5 +62,4 @@ function updateConsole(fps) {
   devConsole.querySelector(".player-dx").innerHTML = "Player dx: " + player.dx;  
   devConsole.querySelector(".ball-dx").innerHTML = "Ball dx: " + ball.dx;
   devConsole.querySelector(".ball-dy").innerHTML = "Ball dy: " + ball.dy;  
-
 }

@@ -20,7 +20,8 @@ export class Ball {
     this.dx = Math.random() * (10 - -10) + -10; // sets random start x velocity
     this.dy = Math.random() * (-6 - -5) + -5; // sets random start y velocity
 
-    this.Element = document.createElement("div");
+    this.Element = document.createElement("img");
+    this.Element.setAttribute("src", "./img/ball.png")
     this.Element.style.width = this.Width + "px";
     this.Element.style.height = this.Height + "px";
     this.Element.style.left = this.X + "px";

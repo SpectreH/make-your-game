@@ -8,7 +8,8 @@ export class Player {
     this.Y = yStartPos;
     this.dx = 0;
 
-    this.Element = document.createElement("div");
+    this.Element = document.createElement("img");
+    this.Element.setAttribute("src", "./img/paddle.png")
     this.Element.style.width = this.Width + "px";
     this.Element.style.height = this.Height + "px";
     this.Element.style.left = this.X + "px";
