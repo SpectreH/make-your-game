@@ -47,7 +47,5 @@ export const generateBrickQuads = (types, tiers) => {
     result.push(brickTile);
   }
 
-  console.log(result)
-
   return result
 }

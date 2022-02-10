@@ -19,8 +19,9 @@ export class Brick {
     this.element.style.bottom = consts.GRID_HEIGHT - consts.BRICK_HEIGHT - this.y + "px";
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
-    this.element.style.backgroundPositionX = window.gFrames["Bricks"][this.color].tier[this.tier].x + "px";
-    this.element.style.backgroundPositionY = window.gFrames["Bricks"][this.color].tier[this.tier].y + "px";
+    this.element.style.backgroundSize = consts.TILESET_WIDTH + "px";
+    this.element.style.backgroundPositionX = window.gFrames["Bricks"][this.color].tier[this.tier].x  + "px";
+    this.element.style.backgroundPositionY = window.gFrames["Bricks"][this.color].tier[this.tier].y  + "px";
   }
 
   update(dt) {

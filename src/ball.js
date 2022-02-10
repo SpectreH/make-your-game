@@ -1,4 +1,4 @@
-import { randomIntInRange } from "./utils.js";
+import { randomIntInRange, consts } from "./dependencies.js";
 
 // Ball class
 export class Ball {
@@ -7,8 +7,8 @@ export class Ball {
     this.height = h;
     this.x = xStartPos;
     this.y = yStartPos;
-    this.dx = Math.random() * (10 - -10) + -10; // sets random start x velocity
-    this.dy = Math.random() * (-6 - -5) + -5; // sets random start y velocity
+    this.dx = randomIntInRange(consts.BALL_MIN_START_DX, consts.BALL_MAX_START_DX); // sets random start x velocity
+    this.dy = randomIntInRange(consts.BALL_MIN_START_DY, consts.BALL_MAX_START_DY); // sets random start y velocity
 
     this.element = document.createElement("div");
 
@@ -19,9 +19,10 @@ export class Ball {
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
 
-    this.tileID = randomIntInRange(0, 5) // random between 0-5
-    this.element.style.backgroundPositionX = window.gFrames["Balls"][this.tileID].x + "px"; 
-    this.element.style.backgroundPositionY = window.gFrames["Balls"][this.tileID].y + "px"; 
+    this.tileID = randomIntInRange(0, consts.BALL_COLORS) // random between 0-5
+    this.element.style.backgroundSize = consts.TILESET_WIDTH + "px";
+    this.element.style.backgroundPositionX = window.gFrames["Balls"][this.tileID].x  + "px"; 
+    this.element.style.backgroundPositionY = window.gFrames["Balls"][this.tileID].y  + "px"; 
   }
 
   collides(target) {

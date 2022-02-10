@@ -1,4 +1,3 @@
-import { Brick } from "../brick.js";
 import { Ball, Player, Grid, consts, createMap } from "../dependencies.js";
 
 // Start state
@@ -12,8 +11,6 @@ export const onStart = {
     this.player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
     this.ball = new Ball(consts.BALL_WIDTH, consts.BALL_HEIGHT, consts.BALL_SPAWN_X, consts.BALL_SPAWN_Y);
     this.level = createMap()
-
-    console.log(window.gFrames["Bricks"])
 
     // Appends player to the grid
     this.player.element.classList.add("player");

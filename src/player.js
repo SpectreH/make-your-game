@@ -1,9 +1,9 @@
-import { randomIntInRange } from "./utils.js";
+import { randomIntInRange, consts } from "./dependencies.js";
 
 // Player class
 export class Player {
   constructor(w, h, xStartPos, yStartPos) {
-    this.speed = 5;
+    this.speed = consts.PADDLE_SPEED;
     this.width = w;
     this.height = h;
     this.x = xStartPos;
@@ -18,8 +18,9 @@ export class Player {
     this.element.style.bottom = this.y + "px";
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
-    this.tileID = randomIntInRange(0, 3) // random between 0-3
-    this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y + "px";
+    this.tileID = randomIntInRange(0, consts.PADDLE_COLORS) // random between 0-3
+    this.element.style.backgroundSize = consts.TILESET_WIDTH + "px";
+    this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y  + "px";
   }
 
   update(gridWidth, dt) {
