@@ -1,3 +1,5 @@
+import { randomIntInRange } from "./utils.js";
+
 // Player class
 export class Player {
   constructor(w, h, xStartPos, yStartPos) {
@@ -16,7 +18,7 @@ export class Player {
     this.element.style.bottom = this.y + "px";
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
-    this.tileID = Math.floor(Math.random() * 4) // random between 0-3
+    this.tileID = randomIntInRange(0, 3) // random between 0-3
     this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y + "px";
   }
 

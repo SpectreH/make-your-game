@@ -1,3 +1,4 @@
+import { randomIntInRange } from "./utils.js";
 
 // Ball class
 export class Ball {
@@ -18,7 +19,7 @@ export class Ball {
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
 
-    this.tileID = Math.floor(Math.random() * 6) // random between 0-5
+    this.tileID = randomIntInRange(0, 5) // random between 0-5
     this.element.style.backgroundPositionX = window.gFrames["Balls"][this.tileID].x + "px"; 
     this.element.style.backgroundPositionY = window.gFrames["Balls"][this.tileID].y + "px"; 
   }

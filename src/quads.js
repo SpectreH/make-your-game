@@ -1,4 +1,6 @@
-export let generateQuads = (startX, startY, rows, cols, width, height) => {
+import { consts } from "./dependencies.js";
+
+export const generateQuads = (startX, startY, rows, cols, width, height) => {
   let result = []
 
   for (let i = 0; i < rows; i++) {
@@ -11,6 +13,41 @@ export let generateQuads = (startX, startY, rows, cols, width, height) => {
       })
     }
   }
+
+  return result
+}
+
+export const generateBrickQuads = (types, tiers) => {
+  let result = [];
+
+  let width = consts.BRICK_WIDTH;
+  let height = consts.BRICK_HEIGHT;
+
+  let tempY = 0;
+  let tempX = 0;
+  for (let i = 0; i < types; i++) {
+    let brickTile = {
+      tier: []
+    }
+
+    for (let y = 0; y < tiers; y++) {
+      let tier = {}
+      tier["x"] = -tempX * width;
+      tier["y"] = -tempY * height;
+
+      brickTile.tier.push(tier)
+
+      tempX++;
+      if (tempX * width >= consts.TILESET_WIDTH) {
+        tempX = 0;
+        tempY++;
+      }
+    }
+
+    result.push(brickTile);
+  }
+
+  console.log(result)
 
   return result
 }

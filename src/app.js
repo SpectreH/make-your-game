@@ -1,4 +1,5 @@
-import { StateMachine, consts, onStart, onPlay, generateQuads } from "./dependencies.js";
+import { StateMachine, consts, onStart, onPlay, generateQuads, generateBrickQuads } from "./dependencies.js";
+import { createMap } from "./levelMaker.js";
 
 // Inits game states machine
 window.stateMachine = new StateMachine({
@@ -10,6 +11,7 @@ window.stateMachine = new StateMachine({
 window.gFrames = {}
 window.gFrames["Balls"] = generateQuads(96, -48, 2, 3, consts.BALL_HEIGHT, consts.BALL_WIDTH);
 window.gFrames["Paddles"] = generateQuads(0, -80, 4, 1, consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT + 16);
+window.gFrames["Bricks"] = generateBrickQuads(5, 4);
 
 // Start the game
 window.stateMachine.change("onStart", {})

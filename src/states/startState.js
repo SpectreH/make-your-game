@@ -1,4 +1,5 @@
-import { Ball, Player, Grid, consts } from "../dependencies.js";
+import { Brick } from "../brick.js";
+import { Ball, Player, Grid, consts, createMap } from "../dependencies.js";
 
 // Start state
 export const onStart = {
@@ -10,6 +11,9 @@ export const onStart = {
 
     this.player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
     this.ball = new Ball(consts.BALL_WIDTH, consts.BALL_HEIGHT, consts.BALL_SPAWN_X, consts.BALL_SPAWN_Y);
+    this.level = createMap()
+
+    console.log(window.gFrames["Bricks"])
 
     // Appends player to the grid
     this.player.element.classList.add("player");
@@ -18,6 +22,13 @@ export const onStart = {
     // Appends ball to the grid
     this.ball.element.classList.add("ball");
     this.grid.element.appendChild(this.ball.element);
+
+    // Appends bricks to the grid
+    this.level.forEach(Brick => {
+      Brick.element.classList.add("brick");
+      this.grid.element.appendChild(Brick.element);
+    });
+
   },
   update: function (dt) {
     window.stateMachine.change("onPlay", {
