@@ -55,7 +55,7 @@ export const createMap = () => {
         consts.BRICK_WIDTH,
         consts.BRICK_HEIGHT,
         (x * consts.BRICK_WIDTH) + consts.GRID_LEFT_PADDING + ((consts.MAX_GRID_CAPACITY - numCols) * consts.BRICK_HEIGHT),
-        y * consts.BRICK_WIDTH + consts.GRID_TOP_PADDING,
+        consts.GRID_HEIGHT - (y * consts.BRICK_WIDTH) - consts.GRID_TOP_PADDING,
         colorToAppend,
         tierToAppend)
 

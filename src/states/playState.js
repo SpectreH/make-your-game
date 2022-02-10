@@ -4,6 +4,7 @@ export const onPlay = {
     this.grid = params.grid;
     this.player = params.player;
     this.ball = params.ball;
+    this.brickMap = params.brickMap
 
     this.paused = false;
   },
@@ -24,6 +25,27 @@ export const onPlay = {
           this.ball.dx = Math.random() * (7 - -7) + -7;
         }
       }
+
+      for (let brick of this.brickMap) {
+        if (this.ball.collides(brick)) {
+          
+          if (this.ball.x < brick.x && this.ball.dx > 0) { // left edge, when moves only right
+            this.ball.dx = -this.ball.dx;
+            this.ball.x = brick.x - this.ball.height;
+          } else if (this.ball.x > brick.x + brick.width && this.ball.dx < 0) { // right edge, when moves only left
+            this.ball.dx = -this.ball.dx;
+            this.ball.x = brick.x - brick.width;
+          } else if (this.ball.y < brick.y) { // top edge
+            this.ball.dy = -this.ball.dy;
+            this.ball.y = brick.y - this.ball.height;
+          } else { // bottom edge
+            this.ball.dy = -this.ball.dy;
+            this.ball.y = brick.y + brick.height;
+          }
+
+          break;
+        }
+      };
 
       if (this.ball.y <= 0) {
         window.stateMachine.change("onStart", {})

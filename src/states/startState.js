@@ -10,7 +10,7 @@ export const onStart = {
 
     this.player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
     this.ball = new Ball(consts.BALL_WIDTH, consts.BALL_HEIGHT, consts.BALL_SPAWN_X, consts.BALL_SPAWN_Y);
-    this.level = createMap()
+    this.brickMap = createMap()
 
     // Appends player to the grid
     this.player.element.classList.add("player");
@@ -21,9 +21,9 @@ export const onStart = {
     this.grid.element.appendChild(this.ball.element);
 
     // Appends bricks to the grid
-    this.level.forEach(Brick => {
-      Brick.element.classList.add("brick");
-      this.grid.element.appendChild(Brick.element);
+    this.brickMap.forEach(brick => {
+      brick.element.classList.add("brick");
+      this.grid.element.appendChild(brick.element);
     });
 
   },
@@ -31,7 +31,8 @@ export const onStart = {
     window.stateMachine.change("onPlay", {
       grid: this.grid,
       player: this.player,
-      ball: this.ball
+      ball: this.ball,
+      brickMap: this.brickMap,
     })
   },
 }
