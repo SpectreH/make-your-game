@@ -17,8 +17,10 @@ export class Ball {
     this.element.style.bottom = this.y + "px";
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
-    this.element.style.backgroundPositionY = "-48px";
-    this.element.style.backgroundPositionX = "96px";
+
+    this.tileID = Math.floor(Math.random() * 6) // random between 0-5
+    this.element.style.backgroundPositionX = window.gFrames["Balls"][this.tileID].x + "px"; 
+    this.element.style.backgroundPositionY = window.gFrames["Balls"][this.tileID].y + "px"; 
   }
 
   collides(target) {

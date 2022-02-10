@@ -1,12 +1,15 @@
-import { StateMachine, consts, onStart, onPlay } from "./dependencies.js";
-
-let newImage = new Image()
+import { StateMachine, consts, onStart, onPlay, generateQuads } from "./dependencies.js";
 
 // Inits game states machine
 window.stateMachine = new StateMachine({
   onStart: onStart,
   onPlay: onPlay
 });
+
+// Quads we will generate for us tiles coordinates for paddles, balls and bricks
+window.gFrames = {}
+window.gFrames["Balls"] = generateQuads(96, -48, 2, 3, consts.BALL_HEIGHT, consts.BALL_WIDTH);
+window.gFrames["Paddles"] = generateQuads(0, -80, 4, 1, consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT + 16);
 
 // Start the game
 window.stateMachine.change("onStart", {})

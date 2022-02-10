@@ -1,4 +1,5 @@
-export const onPlay = {  // Play state
+// Play state
+export const onPlay = {
   enter: function (params) {
     this.grid = params.grid;
     this.player = params.player;

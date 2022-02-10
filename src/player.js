@@ -16,7 +16,8 @@ export class Player {
     this.element.style.bottom = this.y + "px";
 
     this.element.style.backgroundImage = 'url("./img/tileset.png")';
-    this.element.style.backgroundPositionY = "-80px";
+    this.tileID = Math.floor(Math.random() * 4) // random between 0-3
+    this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y + "px";
   }
 
   update(gridWidth, dt) {
