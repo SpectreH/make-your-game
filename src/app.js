@@ -1,4 +1,4 @@
-import { StateMachine, consts, onStart, onPlay, generateQuads, generateBrickQuads } from "./dependencies.js";
+import { StateMachine, consts, onStart, onPlay, generateQuads, generateBrickQuads, Sound } from "./dependencies.js";
 
 // Inits game states machine
 window.stateMachine = new StateMachine({
@@ -6,13 +6,22 @@ window.stateMachine = new StateMachine({
   onPlay: onPlay
 });
 
-// Quads we will generate for us tiles coordinates for paddles, balls and bricks
-window.gFrames = {}
+// Load sounds
+window.gSounds = {};
+window.gSounds["player_hit"] = new Sound("./audio/player_hit.wav");
+window.gSounds["brick_destroy"] = new Sound("./audio/brick_destroy.wav");
+window.gSounds["brick_hit"] = new Sound("./audio/brick_hit.wav");
+window.gSounds["hurt"] = new Sound("./audio/hurt.wav");
+window.gSounds["wall_hit"] = new Sound("./audio/wall_hit.wav");
+window.gSounds["pause"] = new Sound("./audio/pause.wav");
+
+// Quads will generate for us tiles coordinates for backgroundX and backgroundY of paddles, balls and bricks
+window.gFrames = {};
 window.gFrames["Balls"] = generateQuads(consts.BALL_TILE_START_X, consts.BALL_TILE_START_Y, 2, 3, consts.BALL_HEIGHT, consts.BALL_WIDTH);
 window.gFrames["Paddles"] = generateQuads(consts.PLAYER_TILE_START_X, consts.PLAYER_TILE_START_Y, 4, 1, consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT + consts.PLAYER_TILE_GAP);
 window.gFrames["Bricks"] = generateBrickQuads(consts.BRICK_COLORS+1, consts.BRICK_TIERS+1);
 
-// Start the game
+// Starts the game
 window.stateMachine.change("onStart", {})
 
 // Inits dev console

@@ -41,15 +41,18 @@ export class Ball {
     this.x = this.x + this.dx * dt
     this.y = this.y + this.dy * dt
 
-    if (this.x <= 0) {
+    if (this.x <= 0) { // left edge
       this.x = 0
       this.dx = -this.dx
-    } else if (this.x >= 1280 - this.width) {
+      window.gSounds["wall_hit"].play();
+    } else if (this.x >= 1280 - this.width) {  // right edge
       this.x = 1280 - this.width
       this.dx = -this.dx
-    } else if (this.y >= 720 - this.width) {
+      window.gSounds["wall_hit"].play();
+    } else if (this.y >= 720 - this.width) {  // top edge
       this.y = 720 - this.width
       this.dy = -this.dy
+      window.gSounds["wall_hit"].play();
     }
 
     this.render();

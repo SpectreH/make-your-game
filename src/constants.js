@@ -11,7 +11,7 @@ export const PADDLE_SPEED = 5;
 // Ball settings
 export const BALL_COLORS = 5;
 export const [BALL_MIN_START_DX, BALL_MAX_START_DX] = [-10, 10];
-export const [BALL_MIN_START_DY, BALL_MAX_START_DY] = [-6, -5];
+export const [BALL_MIN_START_DY, BALL_MAX_START_DY] = [4, 5];
 
 // Brick settings
 export const BRICK_COLORS = 4;

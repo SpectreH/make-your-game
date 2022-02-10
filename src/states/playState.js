@@ -14,7 +14,7 @@ export const onPlay = {
       this.ball.update(dt);
 
       if (this.ball.collides(this.player)) {
-        this.ball.y = this.player.y + this.player.height + this.ball.height
+        this.ball.y = this.player.y + this.player.height
         this.ball.dy = -this.ball.dy
 
         if (this.ball.x < this.player.x + (this.player.width / 2) && this.player.dx < 0) {
@@ -24,11 +24,12 @@ export const onPlay = {
         } else {
           this.ball.dx = Math.random() * (7 - -7) + -7;
         }
+
+        window.gSounds["player_hit"].play();
       }
 
       for (let brick of this.brickMap) {
         if (this.ball.collides(brick)) {
-          
           if (this.ball.x < brick.x && this.ball.dx > 0) { // left edge, when moves only right
             this.ball.dx = -this.ball.dx;
             this.ball.x = brick.x - this.ball.height;
@@ -43,11 +44,13 @@ export const onPlay = {
             this.ball.y = brick.y + brick.height;
           }
 
+          window.gSounds["brick_hit"].play();
           break;
         }
       };
 
       if (this.ball.y <= 0) {
+        window.gSounds["hurt"].play();
         window.stateMachine.change("onStart", {})
       }
     }
