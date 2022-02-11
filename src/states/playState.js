@@ -1,3 +1,5 @@
+import { consts } from "../dependencies.js";
+
 // Play state
 export const onPlay = {
   enter: function (params) {
@@ -44,6 +46,8 @@ export const onPlay = {
             this.ball.y = brick.y + brick.height;
           }
 
+          this.grid.changeScore((brick.tier + 1) * consts.BRICK_SCORE);
+
           if (brick.tier != 0) {
             brick.tier--;
             window.gSounds["brick_hit"].play();
@@ -59,6 +63,7 @@ export const onPlay = {
 
       if (this.ball.y <= 0) {
         window.gSounds["hurt"].play();
+        this.grid.changeHealth(-1)
         window.gStateMachine.change("onServe", {
           grid: this.grid,
           player: this.player,

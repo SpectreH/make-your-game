@@ -1,13 +1,39 @@
+@font-face {
+  font-family: gameFont;
+  src: url(./fonts/font.ttf);
+}
+
+.text {
+  font-family: gameFont;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+body div {
+  display: flex;
+}
+
+.top-bar {
+  justify-content: space-between;
+  display: flex;
+}
+
 .grid {
   position: relative;
   border: solid 1px black;
-  margin: 0 auto;
 }
 
 .console {
   position: relative;
   text-align: center;
-  font-size: larger;  
+  font-size: larger;
+  display: block;  
 }
 
 .player {

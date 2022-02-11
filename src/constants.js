@@ -5,6 +5,7 @@ export const GRID_HEIGHT = 720;
 export const FPS_MAX = 60;
 
 // Player settings
+export const START_HEALTH = 3;
 export const PADDLE_COLORS = 3;
 export const PADDLE_SPEED = 5;
 
@@ -14,6 +15,7 @@ export const [BALL_MIN_START_DX, BALL_MAX_START_DX] = [-10, 10];
 export const [BALL_MIN_START_DY, BALL_MAX_START_DY] = [4, 5];
 
 // Brick settings
+export const BRICK_SCORE = 100;
 export const BRICK_COLORS = 4;
 export const BRICK_TIERS = 3;
 export const MAX_BRICK_TIER = 3;
