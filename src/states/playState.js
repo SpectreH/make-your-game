@@ -4,7 +4,7 @@ export const onPlay = {
     this.grid = params.grid;
     this.player = params.player;
     this.ball = params.ball;
-    this.brickMap = params.brickMap
+    this.brickMap = params.brickMap;
 
     this.paused = false;
   },
@@ -14,8 +14,8 @@ export const onPlay = {
       this.ball.update(dt);
 
       if (this.ball.collides(this.player)) {
-        this.ball.y = this.player.y + this.player.height
-        this.ball.dy = -this.ball.dy
+        this.ball.y = this.player.y + this.player.height;
+        this.ball.dy = -this.ball.dy;
 
         if (this.ball.x < this.player.x + (this.player.width / 2) && this.player.dx < 0) {
           this.ball.dx = -5 + -(0.1 * (this.player.x + this.player.width / 2 - this.ball.x))
@@ -29,7 +29,7 @@ export const onPlay = {
       }
 
       for (let brick of this.brickMap) {
-        if (this.ball.collides(brick)) {
+        if (this.ball.collides(brick) && brick.inPlay) {
           if (this.ball.x < brick.x && this.ball.dx > 0) { // left edge, when moves only right
             this.ball.dx = -this.ball.dx;
             this.ball.x = brick.x - this.ball.height;
@@ -44,7 +44,15 @@ export const onPlay = {
             this.ball.y = brick.y + brick.height;
           }
 
-          window.gSounds["brick_hit"].play();
+          if (brick.tier != 0) {
+            brick.tier--;
+            window.gSounds["brick_hit"].play();
+          } else {
+            this.grid.element.removeChild(brick.element);
+            brick.inPlay = false;
+            window.gSounds["brick_destroy"].play();
+          }
+
           break;
         }
       };
@@ -56,7 +64,7 @@ export const onPlay = {
           player: this.player,
           ball: this.ball,
           brickMap: this.brickMap,
-        })
+        });
       }
     }
 
@@ -65,6 +73,10 @@ export const onPlay = {
   render: function () {
     this.player.render();
     this.ball.render();
+
+    this.brickMap.forEach(brick => {
+      brick.render();
+    });
 
     window.devConsole.querySelector(".player-x").innerHTML = "Player X: " + this.player.x;
     window.devConsole.querySelector(".player-y").innerHTML = "Player Y: " + this.player.y;

@@ -10,6 +10,7 @@ export class Brick {
 
     this.color = color;
     this.tier = tier;
+    this.inPlay = true;
 
     this.element = document.createElement("div");
 
@@ -28,6 +29,8 @@ export class Brick {
   }
 
   render() {
+    this.element.style.backgroundPositionX = window.gFrames["Bricks"][this.color].tier[this.tier].x + "px";
+    this.element.style.backgroundPositionY = window.gFrames["Bricks"][this.color].tier[this.tier].y + "px";
   }
 }
 

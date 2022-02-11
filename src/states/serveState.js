@@ -4,12 +4,12 @@ export const onServe = {
     this.grid = params.grid;
     this.player = params.player;
     this.ball = params.ball;
-    this.brickMap = params.brickMap
+    this.brickMap = params.brickMap;
   },
   update: function (dt) {
-    this.ball.x = this.player.x + (this.player.width / 2)
-    this.ball.y = this.player.y + this.player.height
-    this.player.update(dt)
+    this.ball.x = this.player.x + (this.player.width / 2);
+    this.ball.y = this.player.y + this.player.height;
+    this.player.update(dt);
 
     if (window.keyPresses.w) {
       window.keyPresses.w = false;
@@ -19,7 +19,7 @@ export const onServe = {
         player: this.player,
         ball: this.ball,
         brickMap: this.brickMap,
-      })
+      });
     }
   },
   render: function () {
