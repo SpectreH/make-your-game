@@ -28,11 +28,14 @@ export const onStart = {
 
   },
   update: function (dt) {
-    window.stateMachine.change("onPlay", {
+    window.gStateMachine.change("onServe", {
       grid: this.grid,
       player: this.player,
       ball: this.ball,
       brickMap: this.brickMap,
     })
   },
+  render: function () {
+    
+  }
 }

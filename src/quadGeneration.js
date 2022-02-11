@@ -31,11 +31,10 @@ export const generateBrickQuads = (types, tiers) => {
     }
 
     for (let y = 0; y < tiers; y++) {
-      let tier = {}
-      tier["x"] = -tempX * width;
-      tier["y"] = -tempY * height;
-
-      brickTile.tier.push(tier)
+      brickTile.tier.push({
+        x: -tempX * width,
+        y: -tempY * height
+      })
 
       tempX++;
       if (tempX * width >= consts.TILESET_WIDTH) {

@@ -23,7 +23,7 @@ export class Player {
     this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y  + "px";
   }
 
-  update(gridWidth, dt) {
+  update(dt) {
     if (window.keyPresses.a) {
       this.dx = -this.speed;
     } else if (window.keyPresses.d) {
@@ -35,10 +35,8 @@ export class Player {
     if (this.dx < 0) {
       this.x = Math.max(0, this.x + this.dx * dt);
     } else {
-      this.x = Math.min(gridWidth - this.width, this.x + this.dx * dt);
+      this.x = Math.min(consts.GRID_WIDTH - this.width, this.x + this.dx * dt);
     }
-
-    this.render();
   }
 
   render() {

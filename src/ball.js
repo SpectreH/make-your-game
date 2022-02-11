@@ -54,8 +54,6 @@ export class Ball {
       this.dy = -this.dy
       window.gSounds["wall_hit"].play();
     }
-
-    this.render();
   }
 
   render() {

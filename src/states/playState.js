@@ -10,7 +10,7 @@ export const onPlay = {
   },
   update: function (dt) {
     if (!this.paused) {
-      this.player.update(this.grid.width, dt);
+      this.player.update(dt);
       this.ball.update(dt);
 
       if (this.ball.collides(this.player)) {
@@ -51,14 +51,21 @@ export const onPlay = {
 
       if (this.ball.y <= 0) {
         window.gSounds["hurt"].play();
-        window.stateMachine.change("onStart", {})
+        window.gStateMachine.change("onServe", {
+          grid: this.grid,
+          player: this.player,
+          ball: this.ball,
+          brickMap: this.brickMap,
+        })
       }
     }
 
     window.keyPresses.p ? this.paused = true : this.paused = false;
-    this.draw();
   },
-  draw: function () {
+  render: function () {
+    this.player.render();
+    this.ball.render();
+
     window.devConsole.querySelector(".player-x").innerHTML = "Player X: " + this.player.x;
     window.devConsole.querySelector(".player-y").innerHTML = "Player Y: " + this.player.y;
     window.devConsole.querySelector(".player-w").innerHTML = "Player Width: " + this.player.width;

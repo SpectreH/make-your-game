@@ -20,10 +20,14 @@ export class StateMachine {
   }
 
   update(dt) {
-    this.current.update(dt)
+    if (this.current.update) {
+      this.current.update(dt)
+    }
   }
 
   render() {
-    this.current.render()
+    if (this.current.render) {
+      this.current.render()
+    }
   }
 }
