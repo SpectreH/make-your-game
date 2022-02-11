@@ -25,7 +25,6 @@ export const onStart = {
       brick.element.classList.add("brick");
       this.grid.element.appendChild(brick.element);
     });
-
   },
   update: function (dt) {
     window.gStateMachine.change("onServe", {

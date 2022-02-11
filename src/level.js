@@ -1,4 +1,4 @@
-import { consts } from "./dependencies.js";
+import { consts, pad } from "./dependencies.js";
 
 // Grid class
 export class Grid {
@@ -10,18 +10,47 @@ export class Grid {
     this.element.style.width = this.width + "px";
     this.element.style.height = this.height + "px";
 
-    this.score = document.querySelector(".score");
-    this.health = document.querySelector(".health");
+    this.scoreElement = document.querySelector("#score");
+    this.healthElement = document.querySelector("#health");
+    this.secondsElement = document.querySelector("#seconds");
+    this.minutesElement = document.querySelector("#minutes");
 
-    this.score.innerHTML = 0;
-    this.health.innerHTML = consts.START_HEALTH;
+    this.scoreElement.innerHTML = 0;
+    this.healthElement.innerHTML = consts.START_HEALTH;
+
+    this.totalSeconds = 0;
+    this.timeCounterPaused = true;
+    this.timeCounterInterval = null;
   }
 
   changeHealth(health) {
-    this.health.innerHTML = parseInt(this.health.innerHTML, 10) + health;
+    this.healthElement.innerHTML = parseInt(this.healthElement.innerHTML, 10) + health;
   }
 
   changeScore(score) {
-    this.score.innerHTML = parseInt(this.score.innerHTML, 10) + score;
+    this.scoreElement.innerHTML = parseInt(this.scoreElement.innerHTML, 10) + score;
+  }
+
+  setTime() {
+    if (!this.timeCounterPaused) {
+      this.totalSeconds++;
+      this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
+      this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
+    }
+  }
+
+  startTime() {
+    this.timeCounterPaused = false;
+    this.timeCounterInterval = setInterval(this.setTime.bind(this), 1000);
+  }
+  
+  clearTimer() {
+    clearInterval(this.timeCounterInterval);
+    this.timeCounterInterval = null;
+
+    this.totalSeconds = 0;
+    this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
+    this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
+    this.timeCounterPaused = true;
   }
 }

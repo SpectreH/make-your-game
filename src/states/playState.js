@@ -11,6 +11,10 @@ export const onPlay = {
     this.paused = false;
   },
   update: function (dt) {
+    if (!this.grid.timeCounterInterval) {
+      this.grid.startTime();
+    }
+
     if (!this.paused) {
       this.player.update(dt);
       this.ball.update(dt);
@@ -73,7 +77,13 @@ export const onPlay = {
       }
     }
 
-    window.keyPresses.p ? this.paused = true : this.paused = false;
+    if (window.keyPresses.p) {
+      this.paused = true;
+      this.grid.timeCounterPaused = true;
+    } else {
+      this.paused = false;
+      this.grid.timeCounterPaused = false;
+    }
   },
   render: function () {
     this.player.render();

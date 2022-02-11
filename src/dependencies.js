@@ -6,7 +6,7 @@ export { Brick } from "./brick.js";
 export { StateMachine } from "./stateMachine.js";
 export { Sound } from "./sound.js";
 export { generateQuads, generateBrickQuads } from "./quadGeneration.js";
-export { randomIntInRange } from "./utils.js";
+export { randomIntInRange, pad } from "./utils.js";
 export { createMap } from "./levelMaker.js";
 export { onStart } from "./states/startState.js";
 export { onPlay } from "./states/playState.js";
