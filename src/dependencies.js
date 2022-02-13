@@ -1,6 +1,6 @@
 export * as consts from "./constants.js";
 export { Player } from "./player.js";
-export { Grid } from "./level.js";
+export { Grid } from "./grid.js";
 export { Ball } from "./ball.js";
 export { Brick } from "./brick.js";
 export { StateMachine } from "./stateMachine.js";
@@ -14,3 +14,4 @@ export { onServe } from "./states/serveState.js";
 export { onMenu } from "./states/menuState.js";
 export { onPause } from "./states/pauseState.js";
 export { onWin } from "./states/winState.js";
+export { onLost } from "./states/lostState.js";

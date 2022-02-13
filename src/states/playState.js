@@ -94,13 +94,19 @@ export const onPlay = {
       window.gSounds["hurt"].play();
       this.grid.changeHealth(-1)
 
-      window.gStateMachine.change("onServe", {
-        grid: this.grid,
-        player: this.player,
-        ball: this.ball,
-        brickMap: this.brickMap,
-        bricksLeft: this.bricksLeft,
-      });
+      if (this.grid.health == 0) {
+        window.gStateMachine.change("onLost", {
+          grid: this.grid,
+        });
+      } else {
+        window.gStateMachine.change("onServe", {
+          grid: this.grid,
+          player: this.player,
+          ball: this.ball,
+          brickMap: this.brickMap,
+          bricksLeft: this.bricksLeft,
+        });
+      }
     }
 
     if (window.keyPresses.p) {
@@ -120,6 +126,7 @@ export const onPlay = {
   render: function () {
     this.player.render();
     this.ball.render();
+    this.grid.render();
 
     this.brickMap.forEach(brick => {
       brick.render();

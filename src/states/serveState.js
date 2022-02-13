@@ -10,14 +10,9 @@ export const onServe = {
     this.bricksLeft = params.bricksLeft || this.brickMap.length;
 
     // Hint message
-    this.hintMessageElement = document.createElement("div");
-    this.hintMessageElement.setAttribute("id", "hint");
-    this.hintMessageText = document.createElement("p");
-    this.hintMessageText.classList.add("text");
-    this.hintMessageText.innerHTML = `Press W to serve`;
+    this.hintMessageElement = document.querySelector("#hint").cloneNode(true);
     this.hintMessageElement.style.height = consts.GRID_HEIGHT + "px";
-
-    this.hintMessageElement.appendChild(this.hintMessageText);
+    this.hintMessageElement.classList.remove("hide");
     this.grid.element.appendChild(this.hintMessageElement);
   },
   update: function (dt) {
@@ -53,5 +48,6 @@ export const onServe = {
   render: function () {
     this.player.render();
     this.ball.render();
+    this.grid.render();
   }
 }

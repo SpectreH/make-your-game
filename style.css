@@ -3,18 +3,6 @@
   src: url(./fonts/font.ttf);
 }
 
-.text {
-  font-family: gameFont;
-  font-size: 25px;
-  font-weight: 600;
-}
-
-#hint {
-  align-items: center;
-  display: grid;
-  justify-content: center;
-}
-
 body {
   display: grid;
   justify-content: center;
@@ -25,11 +13,39 @@ body {
   align-content: center;
 }
 
+h1 {
+  font-size: 40px!important;
+}
+
+#hint {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+
+.hide {
+  display: none!important;
+}
+
+.text {
+  font-family: gameFont;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.win-text {
+  color: darkgreen;
+}
+
+.lost-text {
+  color: firebrick;
+}
+
 .selected {
   color: mediumblue;
 }
 
-.main-menu, .pause-menu, .win-menu {
+#main-menu, #pause-menu, #win-menu, #lost-menu {
   display: grid;
   align-content: center;
   justify-items: center;

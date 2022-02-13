@@ -25,11 +25,70 @@
   </div>
   <div class="grid">
   </div>
+  <div id="main-menu" class="hide">
+    <div id="menu-1">
+      <p class="text">New Game</p>
+    </div>
+    <div id="menu-2">
+      <p class="text">Campaign</p>
+    </div>
+    <div id="menu-3">
+      <p class="text">Scoreboard</p>
+    </div>
+  </div>
+  <div id="hint" class="hide">
+    <p class="text">Press W to serve</p>
+  </div>
+  <div id="pause-menu" class="hide">
+    <div id="menu-1">
+      <p class="text">Continue</p>
+    </div>
+    <div id="menu-2">
+      <p class="text">Restart</p>
+    </div>
+    <div id="menu-3">
+      <p class="text">Exit</p>
+    </div>
+  </div>
+  <div id="win-menu" class="hide">
+    <div>
+      <h1 class="text win-text">You Win!</h1>
+    </div>
+    <div>
+      <p id="score-win-menu" class="text">Your total score:&nbsp</p>
+    </div>
+    <div>
+      <p id="time-win-menu" class="text">Your time:&nbsp</p>
+    </div>
+    <div id="menu-1">
+      <p class="text">Continue</p>
+    </div>
+  </div>
+  <div id="lost-menu" class="hide">
+    <div>
+      <h1 class="text lost-text">You Lost!</h1>
+    </div>
+    <div>
+      <p id="score-lost-menu" class="text">Your total score:&nbsp</p>
+    </div>
+    <div>
+      <p id="time-lost-menu" class="text">Your time:&nbsp</p>
+    </div>
+    <div id="menu-1">
+      <p class="text">Save result</p>
+    </div>
+    <div id="menu-2">
+      <p class="text">New game</p>
+    </div>
+    <div id="menu-3">
+      <p class="text">Exit</p>
+    </div>
+  </div>
   <script type="module" src="./src/app.js"></script>
   <script type="module" src="./src/player.js"></script>
   <script type="module" src="./src/ball.js"></script>
   <script type="module" src="./src/brick.js"></script>
-  <script type="module" src="./src/level.js"></script>
+  <script type="module" src="./src/grid.js"></script>
   <script type="module" src="./src/constants.js"></script>
   <script type="module" src="./src/quadGeneration.js"></script>
   <script type="module" src="./src/sound.js"></script>
@@ -42,6 +101,7 @@
   <script type="module" src="./src/states/menuState.js"></script>
   <script type="module" src="./src/states/pauseState.js"></script>
   <script type="module" src="./src/states/winState.js"></script>
+  <script type="module" src="./src/states/lostState.js"></script>
   <script type="module" src="./src/dependencies.js"></script>
 </body>
 </html>

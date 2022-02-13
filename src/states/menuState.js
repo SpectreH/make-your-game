@@ -13,38 +13,10 @@ export const onMenu = {
     }
 
     this.grid.topBarElement.style.display = "none";
-    
-    this.mainMenuElement = document.createElement("div"); // page id = 0
-    this.newGameElement = document.createElement("div"); 
-    this.campaignElement = document.createElement("div"); 
-    this.scoreBoardElement = document.createElement("div"); // page id = 1
 
-    this.mainMenuElement.classList.add("main-menu");
+    this.mainMenuElement = document.getElementById("main-menu").cloneNode(true);
     this.mainMenuElement.style.height = consts.GRID_HEIGHT + "px";
-
-    this.newGameElement.setAttribute("id", "menu-1");
-    this.campaignElement.setAttribute("id", "menu-2");
-    this.scoreBoardElement.setAttribute("id", "menu-3");
-
-    this.newGameText = document.createElement("p");
-    this.newCampaignText = document.createElement("p");
-    this.scoreBoardText = document.createElement("p");
-
-    this.newGameText.classList.add("text");
-    this.newCampaignText.classList.add("text");
-    this.scoreBoardText.classList.add("text");
-
-    this.newGameText.innerHTML = "New Game";
-    this.newCampaignText.innerHTML = "Campaign";
-    this.scoreBoardText.innerHTML = "Scoreboard";
-
-    this.newGameElement.appendChild(this.newGameText);
-    this.campaignElement.appendChild(this.newCampaignText);
-    this.scoreBoardElement.appendChild(this.scoreBoardText);
-
-    this.mainMenuElement.appendChild(this.newGameElement)
-    this.mainMenuElement.appendChild(this.campaignElement)
-    this.mainMenuElement.appendChild(this.scoreBoardElement)
+    this.mainMenuElement.classList.remove("hide");
 
     this.grid.element.appendChild(this.mainMenuElement)
   },
@@ -74,6 +46,7 @@ export const onMenu = {
       switch (this.selected) {
         case 1:
           window.gStateMachine.change("onStart", {});
+          break;
       }
     }
   },

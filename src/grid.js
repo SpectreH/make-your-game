@@ -17,9 +17,8 @@ export class Grid {
     this.secondsElement = document.querySelector("#seconds");
     this.minutesElement = document.querySelector("#minutes");
 
-    // Score and health elements
-    this.scoreElement.innerHTML = 0;
-    this.healthElement.innerHTML = consts.START_HEALTH;
+    this.score = 0;
+    this.health = consts.START_HEALTH;
 
     // Timer element
     this.totalSeconds = 0;
@@ -28,11 +27,11 @@ export class Grid {
   }
 
   changeHealth(health) { // Adds or removes health
-    this.healthElement.innerHTML = parseInt(this.healthElement.innerHTML, 10) + health;
+    this.health += health;
   }
 
   changeScore(score) { // Adds or removes score
-    this.scoreElement.innerHTML = parseInt(this.scoreElement.innerHTML, 10) + score;
+    this.score += score;
   }
 
   startTimer() { // Starts timer
@@ -56,5 +55,10 @@ export class Grid {
       this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
       this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
     }
+  }
+
+  render() {
+    this.scoreElement.innerHTML = this.score;
+    this.healthElement.innerHTML = this.health;
   }
 }

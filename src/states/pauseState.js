@@ -6,37 +6,9 @@ export const onPause = {
     this.selected = 1;
     this.params = params
 
-    this.pauseMenuElement = document.createElement("div"); 
-    this.continueElement = document.createElement("div");
-    this.restartElement = document.createElement("div"); 
-    this.exitElement = document.createElement("div"); 
-
-    this.pauseMenuElement.classList.add("pause-menu");
+    this.pauseMenuElement = document.getElementById("pause-menu").cloneNode(true);
     this.pauseMenuElement.style.height = consts.GRID_HEIGHT + "px";
-
-    this.continueElement.setAttribute("id", "menu-1");
-    this.restartElement.setAttribute("id", "menu-2")
-    this.exitElement.setAttribute("id", "menu-3");
-
-    this.continueText = document.createElement("p");
-    this.restartText = document.createElement("p");
-    this.exitText = document.createElement("p");
-
-    this.continueText.classList.add("text");
-    this.restartText.classList.add("text");
-    this.exitText.classList.add("text");
-
-    this.continueText.innerHTML = "Continue";
-    this.restartText.innerHTML = "Restart";
-    this.exitText.innerHTML = "Exit";
-
-    this.continueElement.appendChild(this.continueText);
-    this.restartElement.appendChild(this.restartText)
-    this.exitElement.appendChild(this.exitText);
-
-    this.pauseMenuElement.appendChild(this.continueElement)
-    this.pauseMenuElement.appendChild(this.restartElement)
-    this.pauseMenuElement.appendChild(this.exitElement)
+    this.pauseMenuElement.classList.remove("hide");
 
     this.params.grid.element.appendChild(this.pauseMenuElement)
 

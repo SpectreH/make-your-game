@@ -1,4 +1,4 @@
-import { StateMachine, consts, onStart, onPlay, onServe, generateQuads, generateBrickQuads, Sound, onMenu, onPause, onWin } from "./dependencies.js";
+import { StateMachine, consts, onStart, onPlay, onServe, generateQuads, generateBrickQuads, Sound, onMenu, onPause, onWin, onLost } from "./dependencies.js";
 
 // Inits game states machine
 window.gStateMachine = new StateMachine({
@@ -8,6 +8,7 @@ window.gStateMachine = new StateMachine({
   onMenu: onMenu,
   onPause: onPause,
   onWin: onWin,
+  onLost: onLost,
 });
 
 // Load sounds
