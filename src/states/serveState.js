@@ -7,6 +7,7 @@ export const onServe = {
     this.player = params.player;
     this.ball = params.ball;
     this.brickMap = params.brickMap;
+    this.bricksLeft = params.bricksLeft || this.brickMap.length;
 
     // Hint message
     this.hintMessageElement = document.createElement("div");
@@ -32,6 +33,7 @@ export const onServe = {
         player: this.player,
         ball: this.ball,
         brickMap: this.brickMap,
+        bricksLeft: this.bricksLeft,
       });
     }
 
@@ -44,6 +46,7 @@ export const onServe = {
         player: this.player,
         ball: this.ball,
         brickMap: this.brickMap,
+        bricksLeft: this.bricksLeft,
       });
     }
   },

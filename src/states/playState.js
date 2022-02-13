@@ -8,6 +8,8 @@ export const onPlay = {
     this.ball = params.ball;
     this.brickMap = params.brickMap;
 
+    this.bricksLeft = params.bricksLeft;
+
     if (this.grid.element.querySelector("#hint")) { // Removes hint message if exists
       this.grid.element.querySelector("#hint").remove();
     }
@@ -65,6 +67,7 @@ export const onPlay = {
           brick.tier--;
           window.gSounds["brick_hit"].play();
         } else {
+          this.bricksLeft--;
           this.grid.element.removeChild(brick.element);
           brick.inPlay = false;
           window.gSounds["brick_destroy"].play();
@@ -73,6 +76,16 @@ export const onPlay = {
         break;
       }
     };
+
+    if (this.bricksLeft == 0) {
+      this.grid.timeCounterPaused = true;
+
+      window.gStateMachine.change("onWin", {
+        grid: this.grid,
+        player: this.player,
+        ball: this.ball,
+      });
+    }
 
     // Ball beyond the player
     if (this.ball.y <= 0) {
@@ -86,6 +99,7 @@ export const onPlay = {
         player: this.player,
         ball: this.ball,
         brickMap: this.brickMap,
+        bricksLeft: this.bricksLeft,
       });
     }
 
@@ -99,6 +113,7 @@ export const onPlay = {
         player: this.player,
         ball: this.ball,
         brickMap: this.brickMap,
+        bricksLeft: this.bricksLeft,
       });
     }
   },

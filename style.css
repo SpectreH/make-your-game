@@ -29,7 +29,7 @@ body {
   color: mediumblue;
 }
 
-.main-menu, .pause-menu {
+.main-menu, .pause-menu, .win-menu {
   display: grid;
   align-content: center;
   justify-items: center;
