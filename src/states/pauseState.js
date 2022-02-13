@@ -40,13 +40,12 @@ export const onPause = {
 
     this.params.grid.element.appendChild(this.pauseMenuElement)
 
-    if (this.params.grid.element.querySelector("#hint")) {
+    if (this.params.grid.element.querySelector("#hint")) { // Removes hint message if exists
       this.params.grid.element.querySelector("#hint").remove();
     }
   },
   update: function () {
     this.currentSelectedElement = this.pauseMenuElement.querySelector(`#menu-${this.selected}`);
-
     if (!this.currentSelectedElement.classList.contains("selected")) {
       this.currentSelectedElement.classList.add("selected");
     }

@@ -3,6 +3,7 @@ import { randomIntInRange, Brick, consts } from "./dependencies.js"
 export const createMap = () => {
   let res = [];
 
+  // Sets random sizes
   let numRows = randomIntInRange(consts.MIN_MAP_ROWS, consts.MAX_MAP_ROWS);
   let numCols = randomIntInRange(consts.MIN_BRICK_IN_ROW, consts.MAX_BRICK_IN_ROW);
   numCols = numCols % 2 == 0 && numCols + 1 || numCols; // ensure, what only odd number of columns
@@ -11,7 +12,7 @@ export const createMap = () => {
   let highestColor = randomIntInRange(1, consts.MAX_BRICK_COLOR);
 
   for (let y = 0; y < numRows; y++) {
-    let skipPattern = randomIntInRange(0, 1);
+    let skipPattern = randomIntInRange(0, 1); // Creates gaps between bricks
     let alternatePattern = randomIntInRange(0, 1);
 
     let alternateColor1 = randomIntInRange(0, highestColor);

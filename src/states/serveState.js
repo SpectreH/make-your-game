@@ -8,6 +8,7 @@ export const onServe = {
     this.ball = params.ball;
     this.brickMap = params.brickMap;
 
+    // Hint message
     this.hintMessageElement = document.createElement("div");
     this.hintMessageElement.setAttribute("id", "hint");
     this.hintMessageText = document.createElement("p");

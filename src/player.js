@@ -24,6 +24,7 @@ export class Player {
   }
 
   update(dt) {
+    // Player movement
     if (window.keyPresses.a) {
       this.dx = -this.speed;
     } else if (window.keyPresses.d) {
@@ -32,6 +33,7 @@ export class Player {
       this.dx = 0;
     }
 
+    // Player limiters    
     if (this.dx < 0) {
       this.x = Math.max(0, this.x + this.dx * dt);
     } else {

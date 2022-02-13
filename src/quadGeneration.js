@@ -1,5 +1,6 @@
 import { consts } from "./dependencies.js";
 
+// Quads generation for player and ball tiles
 export const generateQuads = (startX, startY, rows, cols, width, height) => {
   let result = []
 
@@ -17,6 +18,7 @@ export const generateQuads = (startX, startY, rows, cols, width, height) => {
   return result
 }
 
+// Quads generation for brick tiles
 export const generateBrickQuads = (types, tiers) => {
   let result = [];
 
@@ -42,7 +44,6 @@ export const generateBrickQuads = (types, tiers) => {
         tempY++;
       }
     }
-
     result.push(brickTile);
   }
 

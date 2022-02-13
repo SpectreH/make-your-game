@@ -8,15 +8,17 @@ export const onPlay = {
     this.ball = params.ball;
     this.brickMap = params.brickMap;
 
-    if (this.grid.element.querySelector("#hint")) {
+    if (this.grid.element.querySelector("#hint")) { // Removes hint message if exists
       this.grid.element.querySelector("#hint").remove();
     }
   },
   update: function (dt) {
-    if (!this.grid.timeCounterInterval) {
+    // Starts timer, when game starts first time
+    if (!this.grid.timeCounterInterval) { 
       this.grid.startTimer();
     }
 
+    // Resumes timer after pause or serve
     if (this.grid.timeCounterPaused) {
       this.grid.timeCounterPaused = false;
     }
@@ -24,6 +26,7 @@ export const onPlay = {
     this.player.update(dt);
     this.ball.update(dt);
 
+    // Ball collides with player
     if (this.ball.collides(this.player)) {
       this.ball.y = this.player.y + this.player.height;
       this.ball.dy = -this.ball.dy;
@@ -39,6 +42,7 @@ export const onPlay = {
       window.gSounds["player_hit"].play();
     }
 
+    // Ball collides with brick
     for (let brick of this.brickMap) {
       if (this.ball.collides(brick) && brick.inPlay) {
         if (this.ball.x < brick.x && this.ball.dx > 0) { // left edge, when moves only right
@@ -70,6 +74,7 @@ export const onPlay = {
       }
     };
 
+    // Ball beyond the player
     if (this.ball.y <= 0) {
       this.grid.timeCounterPaused = true;
 
