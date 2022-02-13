@@ -1,10 +1,12 @@
-import { StateMachine, consts, onStart, onPlay, onServe, generateQuads, generateBrickQuads, Sound } from "./dependencies.js";
+import { StateMachine, consts, onStart, onPlay, onServe, generateQuads, generateBrickQuads, Sound, onMenu, onPause } from "./dependencies.js";
 
 // Inits game states machine
 window.gStateMachine = new StateMachine({
   onStart: onStart,
   onPlay: onPlay,
   onServe: onServe,
+  onMenu: onMenu,
+  onPause: onPause,
 });
 
 // Load sounds
@@ -23,10 +25,7 @@ window.gFrames["Paddles"] = generateQuads(consts.PLAYER_TILE_START_X, consts.PLA
 window.gFrames["Bricks"] = generateBrickQuads(consts.BRICK_COLORS+1, consts.BRICK_TIERS+1);
 
 // Starts the game
-window.gStateMachine.change("onStart", {})
-
-// Inits dev console
-window.devConsole = document.querySelector(".console");
+window.gStateMachine.change("onMenu", {})
 
 // Binds keys press
 window.keyPresses = {};
@@ -70,6 +69,5 @@ function gameLoop() {
 
     window.gStateMachine.update(dt)
     window.gStateMachine.render()
-    window.devConsole.querySelector(".fps").innerHTML = "FPS: " + Math.round(1000 / interval);
   }
 }

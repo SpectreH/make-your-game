@@ -8,6 +8,9 @@ export const onStart = {
       this.grid.element.removeChild(this.grid.element.firstChild);
     }
 
+    this.grid.topBarElement.style.display = "flex";
+    this.grid.clearTimer();
+
     this.player = new Player(consts.PLAYER_WIDTH, consts.PLAYER_HEIGHT, consts.PLAYER_SPAWN_X, consts.PLAYER_SPAWN_Y);
     this.ball = new Ball(consts.BALL_WIDTH, consts.BALL_HEIGHT, consts.BALL_SPAWN_X, consts.BALL_SPAWN_Y);
     this.brickMap = createMap();

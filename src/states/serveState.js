@@ -7,7 +7,7 @@ export const onServe = {
     this.brickMap = params.brickMap;
   },
   update: function (dt) {
-    this.ball.x = this.player.x + (this.player.width / 2);
+    this.ball.x = this.player.x + (this.player.width / 2) - (this.ball.width / 2);
     this.ball.y = this.player.y + this.player.height;
     this.player.update(dt);
 
@@ -15,6 +15,18 @@ export const onServe = {
       window.keyPresses.w = false;
 
       window.gStateMachine.change("onPlay", {
+        grid: this.grid,
+        player: this.player,
+        ball: this.ball,
+        brickMap: this.brickMap,
+      });
+    }
+
+    if (window.keyPresses.p) {
+      window.keyPresses.p = false;
+
+      window.gStateMachine.change("onPause", {
+        prevState: "onServe",
         grid: this.grid,
         player: this.player,
         ball: this.ball,

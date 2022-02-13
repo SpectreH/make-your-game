@@ -10,6 +10,7 @@ export class Grid {
     this.element.style.width = this.width + "px";
     this.element.style.height = this.height + "px";
 
+    this.topBarElement = document.querySelector(".top-bar");
     this.scoreElement = document.querySelector("#score");
     this.healthElement = document.querySelector("#health");
     this.secondsElement = document.querySelector("#seconds");
@@ -31,15 +32,7 @@ export class Grid {
     this.scoreElement.innerHTML = parseInt(this.scoreElement.innerHTML, 10) + score;
   }
 
-  setTime() {
-    if (!this.timeCounterPaused) {
-      this.totalSeconds++;
-      this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
-      this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
-    }
-  }
-
-  startTime() {
+  startTimer() {
     this.timeCounterPaused = false;
     this.timeCounterInterval = setInterval(this.setTime.bind(this), 1000);
   }
@@ -52,5 +45,13 @@ export class Grid {
     this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
     this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
     this.timeCounterPaused = true;
+  }
+
+  setTime() {
+    if (!this.timeCounterPaused) {
+      this.totalSeconds++;
+      this.minutesElement.innerHTML = pad(parseInt(this.totalSeconds / 60));
+      this.secondsElement.innerHTML = pad(this.totalSeconds % 60);
+    }
   }
 }

@@ -11,3 +11,5 @@ export { createMap } from "./levelMaker.js";
 export { onStart } from "./states/startState.js";
 export { onPlay } from "./states/playState.js";
 export { onServe } from "./states/serveState.js";
+export { onMenu } from "./states/menuState.js";
+export { onPause } from "./states/pauseState.js";

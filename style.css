@@ -13,14 +13,28 @@ body {
   display: grid;
   justify-content: center;
   margin: 0 auto;
+
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
 }
 
-body div {
-  display: flex;
+.selected {
+  color: mediumblue;
+}
+
+.main-menu, .pause-menu {
+  display: grid;
+  align-content: center;
+  justify-items: center;
 }
 
 .top-bar {
   justify-content: space-between;
+  display: none;
+}
+
+.top-bar div {
   display: flex;
 }
 
