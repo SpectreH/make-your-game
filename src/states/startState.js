@@ -8,6 +8,7 @@ export const onStart = {
       this.grid.element.removeChild(this.grid.element.firstChild);
     }
 
+    window.keyPresses = {};
     this.grid.topBarElement.style.display = "flex";
     this.grid.clearTimer();
 

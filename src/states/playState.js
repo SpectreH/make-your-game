@@ -7,6 +7,10 @@ export const onPlay = {
     this.player = params.player;
     this.ball = params.ball;
     this.brickMap = params.brickMap;
+
+    if (this.grid.element.querySelector("#hint")) {
+      this.grid.element.querySelector("#hint").remove();
+    }
   },
   update: function (dt) {
     if (!this.grid.timeCounterInterval) {
@@ -71,7 +75,7 @@ export const onPlay = {
 
       window.gSounds["hurt"].play();
       this.grid.changeHealth(-1)
-      
+
       window.gStateMachine.change("onServe", {
         grid: this.grid,
         player: this.player,

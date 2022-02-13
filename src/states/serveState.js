@@ -1,3 +1,5 @@
+import { consts } from "../dependencies.js";
+
 // Server state
 export const onServe = {
   enter: function (params) {
@@ -5,6 +7,16 @@ export const onServe = {
     this.player = params.player;
     this.ball = params.ball;
     this.brickMap = params.brickMap;
+
+    this.hintMessageElement = document.createElement("div");
+    this.hintMessageElement.setAttribute("id", "hint");
+    this.hintMessageText = document.createElement("p");
+    this.hintMessageText.classList.add("text");
+    this.hintMessageText.innerHTML = `Press W to serve`;
+    this.hintMessageElement.style.height = consts.GRID_HEIGHT + "px";
+
+    this.hintMessageElement.appendChild(this.hintMessageText);
+    this.grid.element.appendChild(this.hintMessageElement);
   },
   update: function (dt) {
     this.ball.x = this.player.x + (this.player.width / 2) - (this.ball.width / 2);

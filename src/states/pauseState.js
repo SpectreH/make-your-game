@@ -39,6 +39,10 @@ export const onPause = {
     this.pauseMenuElement.appendChild(this.exitElement)
 
     this.params.grid.element.appendChild(this.pauseMenuElement)
+
+    if (this.params.grid.element.querySelector("#hint")) {
+      this.params.grid.element.querySelector("#hint").remove();
+    }
   },
   update: function () {
     this.currentSelectedElement = this.pauseMenuElement.querySelector(`#menu-${this.selected}`);

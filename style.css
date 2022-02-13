@@ -9,6 +9,12 @@
   font-weight: 600;
 }
 
+#hint {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+
 body {
   display: grid;
   justify-content: center;
