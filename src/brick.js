@@ -19,7 +19,7 @@ export class Brick {
     this.element.style.left = this.x + "px";
     this.element.style.bottom = this.y + "px";
 
-    this.element.style.backgroundImage = 'url("./img/tileset.png")';
+    this.element.style.backgroundImage = consts.TILESET_TEXTURE_PATH;
     this.element.style.backgroundSize = consts.TILESET_WIDTH + "px";
     this.element.style.backgroundPositionX = window.gFrames["Bricks"][this.color].tier[this.tier].x  + "px";
     this.element.style.backgroundPositionY = window.gFrames["Bricks"][this.color].tier[this.tier].y  + "px";

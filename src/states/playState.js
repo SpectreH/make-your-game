@@ -95,6 +95,7 @@ export const onPlay = {
       this.grid.changeHealth(-1)
 
       if (this.grid.health == 0) {
+        this.grid.topBarElement.style.display = "none";
         window.gStateMachine.change("onLost", {
           grid: this.grid,
         });

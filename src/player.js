@@ -17,7 +17,7 @@ export class Player {
     this.element.style.left = this.x + "px";
     this.element.style.bottom = this.y + "px";
 
-    this.element.style.backgroundImage = 'url("./img/tileset.png")';
+    this.element.style.backgroundImage = consts.TILESET_TEXTURE_PATH;
     this.tileID = randomIntInRange(0, consts.PADDLE_COLORS) // random between 0-3
     this.element.style.backgroundSize = consts.TILESET_WIDTH + "px";
     this.element.style.backgroundPositionY = window.gFrames["Paddles"][this.tileID].y  + "px";

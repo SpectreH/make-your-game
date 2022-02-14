@@ -17,6 +17,23 @@ h1 {
   font-size: 40px!important;
 }
 
+td {
+  padding: 8px;
+  text-align: center;
+}
+
+#scoreboard-header{
+  color: maroon;
+}
+
+.scoreboard-player {
+  color: orange; 
+}
+
+#scoreboard-pagination {
+  display: flex;
+}
+
 #hint {
   align-items: center;
   display: grid;
@@ -45,7 +62,7 @@ h1 {
   color: mediumblue;
 }
 
-#main-menu, #pause-menu, #win-menu, #lost-menu {
+#main-menu, #pause-menu, #win-menu, #lost-menu, #scoreboard {
   display: grid;
   align-content: center;
   justify-items: center;

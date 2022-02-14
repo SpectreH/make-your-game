@@ -84,11 +84,31 @@
       <p class="text">Exit</p>
     </div>
   </div>
+  <div id="scoreboard" class="hide text">
+    <table id="scoreboard-table">
+      <tr id="scoreboard-header">
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Levels</th>
+        <th>Time</th>
+      </tr>
+    </table>
+    <div id="scoreboard-pagination">
+      <p id="scoreboard-prev" style="visibility: hidden;"><--&nbsp</p>
+      <p>Page&nbsp</p>
+      <p id="scoreboard-pagination-current"></p>
+      <p>/</p>
+      <p id="scoreboard-pagination-max"></p>
+      <p id="scoreboard-next">&nbsp--></p>
+    </div>
+  </div>
   <script type="module" src="./src/app.js"></script>
   <script type="module" src="./src/player.js"></script>
   <script type="module" src="./src/ball.js"></script>
   <script type="module" src="./src/brick.js"></script>
   <script type="module" src="./src/grid.js"></script>
+  <script type="module" src="./src/scoreboard.js"></script>
   <script type="module" src="./src/constants.js"></script>
   <script type="module" src="./src/quadGeneration.js"></script>
   <script type="module" src="./src/sound.js"></script>

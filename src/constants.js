@@ -3,9 +3,13 @@ export const TEXTURE_SCALE = 1.5;
 export const GRID_WIDTH = 1280;
 export const GRID_HEIGHT = 720;
 export const FPS_MAX = 60;
+export const TILESET_TEXTURE_PATH = `url("./img/tileset.png")`;
 export const MAIN_MENU_ELEMENTS = 3;
 export const PAUSE_MENU_ELEMENTS = 3;
 export const LOST_MENU_ELEMENTS = 3;
+
+// Scoreboard setting
+export const MAX_PLAYERS_AT_PAGE = 5;
 
 // Player settings
 export const START_HEALTH = 3;

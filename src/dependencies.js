@@ -3,6 +3,7 @@ export { Player } from "./player.js";
 export { Grid } from "./grid.js";
 export { Ball } from "./ball.js";
 export { Brick } from "./brick.js";
+export { Scoreboard } from "./scoreboard.js";
 export { StateMachine } from "./stateMachine.js";
 export { Sound } from "./sound.js";
 export { generateQuads, generateBrickQuads } from "./quadGeneration.js";
