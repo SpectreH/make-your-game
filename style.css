@@ -17,6 +17,12 @@ h1 {
   font-size: 40px!important;
 }
 
+h1 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 35px!important;
+}
+
 td {
   padding: 8px;
   text-align: center;
@@ -31,6 +37,12 @@ td {
 }
 
 #scoreboard-pagination {
+  display: flex;
+}
+
+#scoreboard-top-message {
+  color: darkmagenta;
+  text-align: center;  
   display: flex;
 }
 
@@ -59,13 +71,34 @@ td {
 }
 
 .selected {
-  color: mediumblue;
+  color: mediumblue!important;
 }
 
-#main-menu, #pause-menu, #win-menu, #lost-menu, #scoreboard {
+.disabled {
+  color: darkgrey;
+}
+
+#main-menu, #pause-menu, #win-menu, #lost-menu, #scoreboard, #scoreboard-name-input {
   display: grid;
   align-content: center;
   justify-items: center;
+}
+
+#full-close-menu {
+  justify-content: center;
+  display: flex;
+  gap: 100px;
+}
+
+#full-close-menu #scoreboard {
+  max-width: 500px;
+}
+
+#name-input {
+  text-align: center;  
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .top-bar {

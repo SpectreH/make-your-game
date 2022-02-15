@@ -47,7 +47,7 @@ function keyUpListener(event) {
 }
 
 // Detects only once when key pressed
-document.addEventListener('keypress', keyPressedListener);
+window.addEventListener('keypress', keyPressedListener);
 function keyPressedListener(event) {
   if (event.key == "p")
     window.keyPresses[event.key] ? window.keyPresses[event.key] = false : window.keyPresses[event.key] = true

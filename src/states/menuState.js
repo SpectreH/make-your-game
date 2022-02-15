@@ -54,14 +54,12 @@ export const onMenu = {
         if (this.scoreboardElement) {
           this.grid.element.removeChild(this.scoreboardElement);
         }
-
         this.mainMenuElement.classList.remove("hide");
         this.currentPage = 0;
       }
     }
   },
   render: function () {
-
   },
   swithState: async function ()  {
     switch (this.selected) {

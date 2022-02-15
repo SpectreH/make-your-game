@@ -1,4 +1,4 @@
-import { Grid, consts } from "../dependencies.js";
+import { consts } from "../dependencies.js";
 
 // Pause state
 export const onPause = {

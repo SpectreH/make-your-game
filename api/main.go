@@ -32,7 +32,7 @@ func handleRequests() {
 	myRouter := mux.NewRouter().StrictSlash(true)
 
 	myRouter.HandleFunc("/get-scoreboard", getScoreBoard).Methods("GET")
-	myRouter.HandleFunc("/post-scoreboard", postScoreBoard).Methods("POST")
+	myRouter.HandleFunc("/post-scoreboard", postScoreBoard).Methods("POST", "OPTIONS")
 
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
@@ -56,9 +56,10 @@ func postScoreBoard(w http.ResponseWriter, r *http.Request) {
 	var players Players = getJsonData()
 	players.Players = append(players.Players, newPlayer)
 
-	jsonResponse, _ := json.MarshalIndent(players, "", " ")
-	_ = ioutil.WriteFile("./api/scoreboard.json", jsonResponse, 0644)
+	fileData, _ := json.MarshalIndent(players, "", " ")
+	_ = ioutil.WriteFile("./api/scoreboard.json", fileData, 0644)
 
+	jsonResponse, _ := json.MarshalIndent(players.Players, "", "    ")
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Write(jsonResponse)

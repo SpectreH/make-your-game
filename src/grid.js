@@ -17,6 +17,7 @@ export class Grid {
     this.secondsElement = document.querySelector("#seconds");
     this.minutesElement = document.querySelector("#minutes");
 
+    this.level = 0;
     this.score = 0;
     this.health = consts.START_HEALTH;
 

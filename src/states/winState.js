@@ -32,6 +32,7 @@ export const onWin = {
       });
 
       this.params.grid.element.removeChild(this.winMenuElement);
+      this.params.grid.level++;
 
       window.gStateMachine.change("onServe", {
         grid: this.params.grid,
