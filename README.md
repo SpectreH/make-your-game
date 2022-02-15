@@ -23,6 +23,19 @@ go run ./api/
 * Brick tiers and colors
 * SFX
 
+## Control 
+
+BEFORE PLAY, MAKE SURE TO CHANGE **KEYBOARD LAYOUT TO ENG** AND **CAPSLOCK IS TURNED OFF**!
+
+* To navigate through menus, please use keys **w** and **s** on your keyboard.
+* To submit selection, please use key **Enter** on your keyboard.
+* To navigate through scoreboard, please use keys **a** and **d** on your keyboard.
+* To move paddle, please use keys **a** and **d** on your keyboard.
+* To serve ball, please use key **w** on your keyboard.
+* To pause game, please use key **p** on your keyboard.
+* To submit your name and score, please use key **Enter** on your keyboard.
+* To return to main menu from the scoreboard, please use key **Escape** on your keyboard.
+
 ## Additional information
 
 It doesn't have any Canvas. Only pure Javascript.  
