@@ -76,7 +76,6 @@ export const onPlay = {
         break;
       }
     };
-
     if (this.bricksLeft == 0) {
       this.grid.timeCounterPaused = true;
 

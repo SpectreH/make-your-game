@@ -49,6 +49,7 @@ export const onPause = {
             player: this.params.player,
             ball: this.params.ball,
             brickMap: this.params.brickMap,
+            bricksLeft: this.params.bricksLeft
           });
           break;
         case 2:

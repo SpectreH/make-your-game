@@ -78,7 +78,6 @@ export const onLost = {
 
             // Make input element always in focus
             this.alwaysFocusFunc = function (e) {
-              console.log("Test")
               this.nameInput.focus();
             }.bind(this);
 
@@ -130,7 +129,8 @@ export const onLost = {
       name: this.nameInput.value,
       score: this.params.grid.score,
       levels: this.params.grid.level,
-      time: `${this.params.grid.minutesElement.innerHTML}:${this.params.grid.secondsElement.innerHTML}`
+      time: `${this.params.grid.minutesElement.innerHTML}:${this.params.grid.secondsElement.innerHTML}`,
+      createdAt: Date.now(),
     }
 
     await this.scoreboard.postScoreboard(newPlayer);

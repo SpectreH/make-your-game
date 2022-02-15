@@ -4,67 +4,43 @@
    "name": "O.j.",
    "score": 14356,
    "levels": 1,
-   "time": "05:40"
+   "time": "05:40",
+   "createdAt": 0
   },
   {
-   "name": "Neeoo",
-   "score": 200,
-   "levels": 0,
-   "time": "00:02"
-  },
-  {
-   "name": "Abba",
-   "score": 300,
-   "levels": 0,
-   "time": "00:02"
-  },
-  {
-   "name": "Test",
-   "score": 200,
-   "levels": 0,
-   "time": "00:02"
-  },
-  {
-   "name": "Mike",
-   "score": 2400,
-   "levels": 0,
-   "time": "00:04"
-  },
-  {
-   "name": "Lewis",
-   "score": 300,
-   "levels": 0,
-   "time": "00:04"
-  },
-  {
-   "name": "Diego",
-   "score": 700,
-   "levels": 0,
-   "time": "00:04"
-  },
-  {
-   "name": "Hammilton",
-   "score": 300,
-   "levels": 0,
-   "time": "00:02"
-  },
-  {
-   "name": "Michel",
-   "score": 300,
-   "levels": 0,
-   "time": "00:02"
-  },
-  {
-   "name": "Blyat",
-   "score": 5100,
-   "levels": 0,
-   "time": "00:40"
-  },
-  {
-   "name": "LEvel",
-   "score": 800,
+   "name": "Spectre",
+   "score": 22200,
    "levels": 1,
-   "time": "01:09"
+   "time": "04:17",
+   "createdAt": 1644928453070
+  },
+  {
+   "name": "qwerty",
+   "score": 6900,
+   "levels": 0,
+   "time": "01:37",
+   "createdAt": 1644928557588
+  },
+  {
+   "name": "ABBA",
+   "score": 28100,
+   "levels": 0,
+   "time": "00:56",
+   "createdAt": 1644928624320
+  },
+  {
+   "name": "Admin",
+   "score": 13300,
+   "levels": 0,
+   "time": "00:56",
+   "createdAt": 1644928688891
+  },
+  {
+   "name": "John",
+   "score": 2900,
+   "levels": 0,
+   "time": "00:34",
+   "createdAt": 1644928734838
   }
  ]
 }

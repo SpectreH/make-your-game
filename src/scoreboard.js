@@ -39,8 +39,6 @@ export class Scoreboard {
     this.changeScoreboardPage(playerData.name);
 
     for (let player of players) {
-      console.log(player.name == playerData.name, player.score == playerData.score, player.time == playerData.time, player.level == playerData.level)
-
       if (player.name == playerData.name && player.score == playerData.score &&
         player.time == playerData.time && player.level == playerData.level) {
         this.newPlayer = player
@@ -56,9 +54,9 @@ export class Scoreboard {
     this.scoreboardElement.appendChild(this.scoreboardTopMessage);
   }
   async formatPlayersArray(players) {
-    // Sort players by their score
+    // Sort players by their score. If players scores equals, sort by createdAt time.
     players.sort(function (a, b) {
-      return parseFloat(b.score) - parseFloat(a.score);
+      return parseFloat(b.score) - parseFloat(a.score) || a.createdAt - b.createdAt;
     });
 
     // Add for each player ranking

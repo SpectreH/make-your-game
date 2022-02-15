@@ -17,10 +17,11 @@ type Players struct {
 
 // Player model
 type Player struct {
-	Name   string `json:"name"`
-	Score  int    `json:"score"`
-	Levels int    `json:"levels"`
-	Time   string `json:"time"`
+	Name      string `json:"name"`
+	Score     int    `json:"score"`
+	Levels    int    `json:"levels"`
+	Time      string `json:"time"`
+	CreatedAt int    `json:"createdAt"`
 }
 
 func main() {
@@ -68,11 +69,11 @@ func postScoreBoard(w http.ResponseWriter, r *http.Request) {
 // getJsonData returns players data from the file
 func getJsonData() Players {
 	jsonFile, err := os.Open("./api/scoreboard.json")
-	defer jsonFile.Close()
 
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer jsonFile.Close()
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var players Players
